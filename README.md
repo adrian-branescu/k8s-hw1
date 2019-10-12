@@ -1,2 +1,32 @@
 # k8s-hw1
-Kubernetes Homework 1
+## Kubernetes Homework 1
+
+`hello-app` version 1.0 exposes a Rest API with Fastify.
+- path `/hello` returns a HTML page with `Hello World!` message.
+- to build `hello-app` docker image version 1.0 for Node.js backend application run this command in the project root:
+```bash
+docker build -t hello-app:1.0 -f dockerfiles/hello-app/v1/Dockerfile hello-app/
+```
+- to test this image locally run this command:
+```bash
+docker container run --publish 9001:9000 --detach hello-app:1.0
+```
+- you can now access it in your browser at this address:
+```
+http://localhost:9001/hello
+```
+
+`hello-app` version 2.0 exposes a Rest API with Fastify.
+- path `/hello` returns a HTML page with `Hello Mars!` message.
+- to build `hello-app` docker image version 2.0 for Node.js backend application run this command in the project root:
+```bash
+docker build -t hello-app:2.0 -f dockerfiles/hello-app/v2/Dockerfile hello-app/
+```
+- to test this image locally run this command:
+```bash
+docker container run --publish 9002:9000 --detach hello-app:2.0
+```
+- you can now access it in your browser at this address:
+```
+http://localhost:9002/hello
+```

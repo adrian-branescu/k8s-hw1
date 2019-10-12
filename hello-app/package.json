@@ -4,8 +4,11 @@
   "description": "Backend app that expose Rest API using Fastify.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rm -rf node_modules/ package-lock.json"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "2"
+  }
 }
