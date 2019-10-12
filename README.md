@@ -30,3 +30,9 @@ docker container run --publish 9002:9000 --detach hello-app:2.0
 ```
 http://localhost:9002/hello
 ```
+
+`hello-nginx` version 1.0 overrides symbolic links of log files from `/var/log/nginx/` in the original image in order to be able to mount a PersistentVolume and keep the log files in a persistent way.
+- to build `hello-nginx` docker image version 1.0 run this command in the project root:
+```bash
+docker build -t hello-nginx:1.0 -f dockerfiles/hello-nginx/Dockerfile hello-nginx/
+```
