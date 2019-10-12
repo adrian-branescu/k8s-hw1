@@ -1,9 +1,8 @@
 FROM node:10.16
 
-WORKDIR /app
-COPY package.json .
-RUN npm install
+WORKDIR /usr/src/hello-app
 COPY . .
+RUN npm install
 
 EXPOSE 9000
 ENV APP_MESSAGE World
