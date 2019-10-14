@@ -40,7 +40,7 @@ docker build -t hello-nginx:2.0 -f dockerfiles/hello-nginx/Dockerfile hello-ngin
 ```
 
 ## docker hub
-You can find the above mentioned images in the docker hub public registry:
+You can skip the steps described above and find the built images in the docker hub public registry:
 
 - [hello-app](https://cloud.docker.com/repository/docker/adrianbranescu93/hello-app)
 - [hello-nginx](https://cloud.docker.com/repository/docker/adrianbranescu93/hello-nginx)
@@ -52,7 +52,7 @@ In order to deploy the replicated Pod running the above images in two Containers
 kubectl apply -f k8s-manifests/v1/hello-service.yaml
 ```
 
-In order to upgrade the above deployment runt this command in the project root:
+In order to upgrade the above deployment run this command in the project root:
 ```bash
 kubectl apply -f k8s-manifests/v2/hello-service.yaml
 ```
