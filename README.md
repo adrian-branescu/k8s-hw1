@@ -33,8 +33,26 @@ http://localhost:9002/hello
 ```
 
 ##  hello-nginx
-`hello-nginx` version 1.0 overrides symbolic links of log files from `/var/log/nginx/` in the original image in order to be able to mount a PersistentVolume and keep the log files in a persistent way. Also, it extends `/etc/nginx/nginx.conf` with `hello-nginx.conf` file in order to configure `nginx` to act as a proxy for the `hello-app` server.
-- to build `hello-nginx` docker image version 1.0 run this command in the project root:
+`hello-nginx` version 2.0 overrides symbolic links of log files from `/var/log/nginx/` in the original image in order to be able to mount a PersistentVolume and keep the log files in a persistent way. Also, it extends `/etc/nginx/nginx.conf` by overriding `default.conf` file in order to configure `nginx` to act as a proxy for the `hello-app` server.
+- to build `hello-nginx` docker image version 2.0 run this command in the project root:
 ```bash
-docker build -t hello-nginx:1.0 -f dockerfiles/hello-nginx/Dockerfile hello-nginx/
+docker build -t hello-nginx:2.0 -f dockerfiles/hello-nginx/Dockerfile hello-nginx/
+```
+
+## docker hub
+You can find the above mentioned images in the docker hub public registry:
+
+- [hello-app](https://cloud.docker.com/repository/docker/adrianbranescu93/hello-app)
+- [hello-nginx](https://cloud.docker.com/repository/docker/adrianbranescu93/hello-nginx)
+
+
+## kubernetes
+In order to deploy the replicated Pod running the above images in two Containers on the same Pod and expose the Pods as a Service run this command in the project root:
+```bash
+kubectl apply -f k8s-manifests/v1/hello-service.yaml
+```
+
+In order to upgrade the above deployment runt this command in the project root:
+```bash
+kubectl apply -f k8s-manifests/v2/hello-service.yaml
 ```
