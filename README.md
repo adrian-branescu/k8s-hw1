@@ -49,10 +49,10 @@ You can skip the steps described above and find the built images in the docker h
 ## kubernetes
 In order to deploy the replicated Pod running the above images in two Containers on the same Pod and expose the Pods as a Service run this command in the project root:
 ```bash
-kubectl apply -f k8s-manifests/v1/hello-service.yaml
+kubectl apply -f k8s-manifests/hello-service/v1/hello-service.yaml
 ```
 
 In order to upgrade the above deployment run this command in the project root:
 ```bash
-kubectl apply -f k8s-manifests/v2/hello-service.yaml
+kubectl apply -f k8s-manifests/hello-service/v2/hello-service.yaml
 ```
